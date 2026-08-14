@@ -1,0 +1,7 @@
+node_modules/
+messenger.db
+messenger.db-wal
+messenger.db-shm
+.env
+server.log
+*.log
