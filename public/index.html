@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Messenger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ AUTH SCREEN ============ -->
+<div class="auth-screen" id="authScreen">
+  <div class="auth-card">
+    <div class="auth-logo">💬</div>
+    <h1>Messenger</h1>
+    <p class="auth-sub">Общайтесь с любого устройства</p>
+
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tabLogin">Вход</button>
+      <button class="auth-tab" id="tabRegister">Регистрация</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm" class="auth-form">
+      <input type="text" id="loginUsername" placeholder="Логин" autocomplete="username" required>
+      <input type="password" id="loginPassword" placeholder="Пароль" autocomplete="current-password" required>
+      <button type="submit" class="auth-btn">Войти</button>
+      <div class="auth-error" id="loginError"></div>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="registerForm" class="auth-form hidden">
+      <input type="text" id="regDisplayName" placeholder="Ваше имя (например, Анна Смирнова)" required>
+      <input type="text" id="regUsername" placeholder="Придумайте логин" autocomplete="username" required>
+      <input type="password" id="regPassword" placeholder="Придумайте пароль" autocomplete="new-password" required>
+      <button type="submit" class="auth-btn">Создать аккаунт</button>
+      <div class="auth-error" id="registerError"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ============ MAIN APP ============ -->
+<div class="app hidden" id="app">
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="my-avatar" id="myAvatar">Я</div>
+      <div class="title" id="myName">Мессенджер</div>
+      <button class="icon-btn" id="logoutBtn" title="Выйти">⏻</button>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Найти пользователя...">
+    </div>
+    <div class="chat-list" id="chatList"></div>
+  </div>
+
+  <div class="chat-window" id="chatWindow">
+    <div class="empty-state" id="emptyState">
+      <div class="icon">💬</div>
+      <div>Выберите чат или найдите пользователя, чтобы начать переписку</div>
+    </div>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
